@@ -9,11 +9,10 @@ const config = {
     shopDomain: process.env!.SHOP_DOMAIN,
     apiKey: process.env!.SHOPIFY_API_KEY,
     apiSecret: process.env!.SHOPIFY_API_SECRET_KEY,
-    accessToken: process.env!.SHOPIFY_ACCESS_TOKEN,
-    storefrontAccessToken: process.env!.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
     host: process.env!.HOST,
     port: process.env!.PORT || 3000,
     scopes: process.env!.SCOPES,
+    tokenType: 'offline',
     ...apiCreds,
 }
 

@@ -5,10 +5,11 @@
   "license": "MIT",
   "module": "lib/index.js",
   "scripts": {
-    "start": "forever start --uid \"app\" -a -c nodemon lib/index.js --exitcrash",
+    "start": "forever start --uid \"app\" -a -c node lib/index.js",
     "stop": "forever stop app",
     "compile": "tsc",
-    "dev": "tsc --watch & yarn start"
+    "watch": "tsc --watch",
+    "dev": "nodemon lib/index.js"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +27,9 @@
     "forever": "^4.0.3",
     "lowdb": "^5.0.5",
     "node-fetch": "2.6.6",
+    "node-json-db": "^2.1.3",
     "nodemon": "^2.0.20",
+    "nonce": "^1.0.4",
     "ts-json-db": "^2.0.5",
     "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
