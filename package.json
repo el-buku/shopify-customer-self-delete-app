@@ -5,8 +5,8 @@
   "license": "MIT",
   "module": "lib/index.js",
   "scripts": {
-    "start": "forever start --uid \"app\" -a -c node lib/index.js",
-    "stop": "forever stop app",
+    "start": "yarn stop && forever start node lib/index.js",
+    "stop": "forever stop 0",
     "compile": "tsc",
     "watch": "tsc --watch",
     "dev": "nodemon lib/index.js"
