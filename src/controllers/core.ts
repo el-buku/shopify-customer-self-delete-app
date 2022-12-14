@@ -51,8 +51,8 @@ const deleteCustomer: RequestHandler = async function (req, res) {
           }
         }`
       console.log(3)
-      // const data = await adminClient.query(customerDeleteMutation)
-      // console.log(4, data)
+      const data = await adminClient.query(customerDeleteMutation)
+      console.log(4, data)
       // console.log(`Deleted customer with id ${deletedCustomerId}`)
       // dbClient.saveResource({ customerId: deletedCustomerId, status: "SUCCESS" })
       res.status(200).send({ success: true })
