@@ -43,23 +43,23 @@ const deleteCustomer: RequestHandler = async function (req, res) {
     console.log('sloboz, qu', queriedId)
     if (!!customerAccessToken && customerId === queriedId) {
       console.log(2, queriedId)
-      // try {
-      //delete customer using admin client
-      const customerDeleteMutation = `mutation {
+      try {
+        const customerDeleteMutation = `mutation {
         customerDelete(input: {id: "gid://shopify/Customer/${queriedId}"}){
           deletedCustomerId
           }
         }`
-      console.log(3)
-      const data = await adminClient.query(customerDeleteMutation)
-      console.log(4, data)
-      // console.log(`Deleted customer with id ${deletedCustomerId}`)
-      // dbClient.saveResource({ customerId: deletedCustomerId, status: "SUCCESS" })
-      res.status(200).send({ success: true })
-      // } catch (e) {
-      // dbClient.saveResource({ customerId: customerId, status: "FAILED" })
-      // res.status(500).send({ err: true })
-      // }
+        console.log(3)
+        const { data: { customerDelete } } = await adminClient.query(customerDeleteMutation)
+        console.log(4, customerDelete)
+        console.log(`Deleted customer with id ${customerDelete.deletedCustomerId}`)
+        dbClient.saveResource({ customerId: customerId, status: "SUCCESS" })
+
+        res.status(200).send({ success: true })
+      } catch (e) {
+        dbClient.saveResource({ customerId: customerId, status: "FAILED" })
+        res.status(500).send({ err: true })
+      }
     } else if (customerId != queriedId) {
       console.log("Customer ID does not match")
       // dbClient.saveResource({ customerId: customerId, status: "FAILED" })
