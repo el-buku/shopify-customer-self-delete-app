@@ -1,4 +1,4 @@
-this app was created in order to allow customers to self delete their account because shopify doest now allow that out-of-the-box ._.
+this app was created in order to allow customers to self delete their own account because shopify doesn't allow that out-of-the-box ._.
 
 steps:
 - over ngrok tunnel or ssl connection
