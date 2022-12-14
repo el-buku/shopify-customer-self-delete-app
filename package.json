@@ -5,7 +5,7 @@
   "license": "MIT",
   "module": "lib/index.js",
   "scripts": {
-    "start": "yarn stop && forever start node lib/index.js",
+    "start": "forever start node lib/index.js",
     "stop": "forever stop 0",
     "compile": "tsc",
     "watch": "tsc --watch",
